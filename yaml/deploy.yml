@@ -16,6 +16,20 @@ spec:
     spec:
       containers:
       - name: angular-backend
-        image: nginx:latest
+        image: anushree602/angular-backend:v1
         ports:
         - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: com-backend-app
+spec:
+  selector:
+    app: angular-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
