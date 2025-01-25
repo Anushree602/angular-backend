@@ -21,5 +21,10 @@ pipeline {
                 '''
            }
         }
+              stage('deploy') {
+            steps {
+                sh 'kubectl apply -f ./yaml/' 
+           }
+        
     }
 }
