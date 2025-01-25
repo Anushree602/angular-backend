@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    app: angular-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: angular-backend
+  template:
+    metadata:
+      labels:
+        app: angular-backend
+    spec:
+      containers:
+      - name: angular-backend
+        image: nginx:latest
+        ports:
+        - containerPort: 8080
